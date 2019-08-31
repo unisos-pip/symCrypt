@@ -90,7 +90,7 @@ from cryptography.hazmat.backends import default_backend
 
 import cPickle
 
-import symCrypt
+from unisos import symCrypt
 
 g_importedCmnds = {        # Enumerate modules from which CMNDs become invokable
     'bleep': bleep.__file__,
