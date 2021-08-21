@@ -17,12 +17,12 @@ def longDescription():
 #from setuptools import setup
 
 
-#__version__ = get_version('unisos2/icm/__init__.py')
-__version__ = '0.4'
+#__version__ = get_version('unisos/icm/__init__.py')
+__version__ = '0.5'
 
 
 requires = [
-    'unisos2.icm',
+    'unisos.icm',
 ]
 
 
@@ -35,20 +35,20 @@ scripts = [
 
 
 setuptools.setup(
-    name='unisos2.symCrypt',
+    name='unisos.symCrypt',
     version=__version__,
-    namespace_packages=['unisos2'],
+    namespace_packages=['unisos'],
     packages=setuptools.find_packages(),
     scripts=scripts,
     # data_files=[
-    #     ('pkgInfo', ["unisos2/pkgInfo/fp/icmsPkgName/value"]),
+    #     ('pkgInfo', ["unisos/pkgInfo/fp/icmsPkgName/value"]),
     # ],
-    #package_dir={'unisos2.marme': 'unisos2'},
+    #package_dir={'unisos.marme': 'unisos'},
     # package_data={
-    #     'unisos2.marme': ['pkgInfo/fp/icmsPkgName/value'],
+    #     'unisos.marme': ['pkgInfo/fp/icmsPkgName/value'],
     # },
     # package_data={
-    #     '': ['unisos2/marme/resolv.conf'],
+    #     '': ['unisos/marme/resolv.conf'],
     # },
     include_package_data=True,
     zip_safe=False,

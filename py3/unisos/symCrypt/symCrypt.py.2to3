@@ -1,0 +1,94 @@
+RefactoringTool: Skipping optional fixer: buffer
+RefactoringTool: Skipping optional fixer: idioms
+RefactoringTool: Skipping optional fixer: set_literal
+RefactoringTool: Skipping optional fixer: ws_comma
+RefactoringTool: Refactored ./symCrypt/py3/unisos/symCrypt/symCrypt.py
+RefactoringTool: Files that were modified:
+RefactoringTool: ./symCrypt/py3/unisos/symCrypt/symCrypt.py
+--- ./symCrypt/py3/unisos/symCrypt/symCrypt.py	(original)
++++ ./symCrypt/py3/unisos/symCrypt/symCrypt.py	(refactored)
+@@ -103,7 +103,7 @@
+ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+ from cryptography.hazmat.backends import default_backend
+ 
+-import cPickle
++import pickle
+ 
+ 
+ ####+BEGIN: bx:dblock:python:section :title "Library Description (Overview)"
+@@ -175,7 +175,7 @@
+             argChoices.pop(0)
+             actions = argChoices
+         for each in actions:
+-            print each
++            print(each)
+             if interactive:
+                 #print( str( __doc__ ) )  # This is the Summary: from the top doc-string
+                 #version(interactive=True)
+@@ -616,8 +616,8 @@
+                 if allChoices:
+                     separator = ":"
+                     choiceString = eachChoice
+-                print("""{eachChoice}{separator}{eachResult}"""
+-                      .format(eachChoice=choiceString, separator=separator, eachResult=eachResult))
++                print(("""{eachChoice}{separator}{eachResult}"""
++                      .format(eachChoice=choiceString, separator=separator, eachResult=eachResult)))
+ 
+         salt = generate_seed()
+         
+@@ -734,8 +734,8 @@
+                 if allChoices:
+                     separator = ":"
+                     choiceString = eachChoice
+-                print("""{eachChoice}{separator}{eachResult}"""
+-                      .format(eachChoice=choiceString, separator=separator, eachResult=eachResult))
++                print(("""{eachChoice}{separator}{eachResult}"""
++                      .format(eachChoice=choiceString, separator=separator, eachResult=eachResult)))
+ 
+         key = generate_key()
+         keyhex = binascii.hexlify(key)
+@@ -990,7 +990,7 @@
+             encryptedHexKey = thisFile.read()
+         
+         
+-        print("""\
++        print(("""\
+ keyringSystemName =ucrypt       # Class Variable
+ keyringBackend=default          # Class Variable
+ ------------                    # Instance Variables
+@@ -1020,7 +1020,7 @@
+                   encryptedHexKey=encryptedHexKey,
+                   clearHexKey=clearHexKey,
+               )
+-        )
++        ))
+ 
+         return cmndOutcome.set(
+             opError=opError,
+@@ -1238,7 +1238,7 @@
+         clearText = ucrypt.decrypt(cipherText)
+ 
+         if interactive:
+-            print("""{clearText}""".format(clearText=clearText))
++            print(("""{clearText}""".format(clearText=clearText)))
+                 
+         return cmndOutcome.set(
+             opError=icm.OpError.Success,
+@@ -1505,7 +1505,7 @@
+     def load(self):
+ ####+END:        
+         f = open(self.pickleFile, 'rb')
+-        tmp_dict = cPickle.load(f)
++        tmp_dict = pickle.load(f)
+         f.close()          
+ 
+         self.__dict__.update(tmp_dict) 
+@@ -1518,7 +1518,7 @@
+     def save(self):
+ ####+END:        
+         f = open(self.pickleFile, 'wb')
+-        cPickle.dump(self.__dict__, f, 2)
++        pickle.dump(self.__dict__, f, 2)
+         f.close()        
+ 
+ 
