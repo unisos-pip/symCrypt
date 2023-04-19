@@ -369,13 +369,13 @@ def examples_libModuleCmnds():
 
     cmndName = "genkey"
 
-    def thisBlock():
+    def thisBlock(): # type: ignore [no-redef]
         cps = cpsInit() ; cmndArgs = "";
         icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='none')
         icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='full')                        
     thisBlock()
 
-    def thisBlock():
+    def thisBlock(): # type: ignore [no-redef]
         cps = cpsInit() ; cmndArgs = "hex";
         icm.ex_gCmndMenuItem(cmndName, cps, cmndArgs, verbosity='none')
     thisBlock()
@@ -1425,7 +1425,7 @@ class EncryptionPolicy(object):
     """
 
     saltAsHexStringObsolete = "597229074e499e5442994d3643a3e7f7"   # generated with os.urandom(16)
-    saltObsolete = saltAsHexStringObsolete.decode("hex")
+    #saltObsolete = saltAsHexStringObsolete.decode("hex")
 
     keyringSystemName = "ucrypt"
     keyringBackend = "default"
